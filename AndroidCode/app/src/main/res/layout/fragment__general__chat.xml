@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ui.chatproperty.Fragment_General_Chat">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/layout_group_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar_gchannel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/yellow_500"
+                    android:theme="@style/Widget.AppCompat.Toolbar"
+                    app:popupTheme="@style/Theme.Roofify">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_gap"
+                        android:contentDescription="@string/text_menu"
+                        android:src="@drawable/ic_baseline_menu_24" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/search_layout"
+                        style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/default_gap"
+                        android:layout_marginTop="@dimen/small_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        android:layout_marginBottom="@dimen/small_gap"
+                        android:hint="@string/search_text_hint"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        app:endIconDrawable="@drawable/ic_baseline_tune_24"
+                        app:startIconContentDescription="@string/search_icon_desc"
+                        app:startIconDrawable="@drawable/ic_baseline_search_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/search_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <!--<androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_gchat_general"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_group_chat"
+                tools:listitem="@layout/item_chat_in_general" />-->
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_group_chat">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/chat1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small_gap">
+
+                        <ImageView
+                            android:id="@+id/image_gchat_profile"
+                            android:layout_width="62dp"
+                            android:layout_height="62dp"
+                            android:layout_marginStart="8dp"
+                            android:contentDescription="User Icon"
+                            android:src="@drawable/ic_baseline_account_circle_36_yellow"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/text_gchat_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text="June 10"
+                            android:textColor="#C0C0C0"
+                            android:layout_marginEnd="@dimen/default_gap"
+                            android:layout_marginVertical="@dimen/default_gap"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/text_gchat_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="John Grady Cole"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toEndOf="@+id/image_gchat_profile"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_gchat_message_other"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardBackgroundColor="#eef1f6"
+                            android:layout_marginStart="8dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true"
+                            app:layout_constraintStart_toEndOf="@+id/image_gchat_profile"
+                            app:layout_constraintTop_toBottomOf="@+id/text_gchat_user">
+
+                            <LinearLayout
+                                android:id="@+id/layout_gchat_container_other2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/text_gchat_message_other2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="8dp"
+                                    android:maxWidth="260dp"
+                                    android:paddingLeft="12dp"
+                                    android:paddingTop="8dp"
+                                    android:paddingRight="12dp"
+                                    android:text="Hola!"
+                                    android:textColor="#000000"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/small_gap"
+                        android:background="@color/black"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/small_gap">
+
+                        <ImageView
+                            android:id="@+id/image_gchat_profile2"
+                            android:layout_width="62dp"
+                            android:layout_height="62dp"
+                            android:layout_marginStart="8dp"
+                            android:contentDescription="User Icon"
+                            android:src="@drawable/ic_baseline_account_circle_36_yellow"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/text_gchat_date2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text="June 10"
+                            android:textColor="#C0C0C0"
+                            android:layout_marginEnd="@dimen/default_gap"
+                            android:layout_marginVertical="@dimen/default_gap"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/text_gchat_user2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Mario Lopez"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toEndOf="@+id/image_gchat_profile2"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/card_gchat_message_other2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardBackgroundColor="#eef1f6"
+                            android:layout_marginStart="8dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardPreventCornerOverlap="false"
+                            app:cardUseCompatPadding="true"
+                            app:layout_constraintStart_toEndOf="@+id/image_gchat_profile2"
+                            app:layout_constraintTop_toBottomOf="@+id/text_gchat_user2">
+
+                            <LinearLayout
+                                android:id="@+id/layout_gchat_container_other"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/text_gchat_message_other"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="8dp"
+                                    android:maxWidth="260dp"
+                                    android:paddingLeft="12dp"
+                                    android:paddingTop="8dp"
+                                    android:paddingRight="12dp"
+                                    android:text="Muchas gracias"
+                                    android:textColor="#000000"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/small_gap"
+                        android:background="@color/black"/>
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:headerLayout="@layout/header_navigation_drawer"
+            app:menu="@menu/navigation_drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

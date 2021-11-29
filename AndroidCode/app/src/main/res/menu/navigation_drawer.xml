@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/profile_menu_item"
+            android:icon="@drawable/ic_baseline_person_24"
+            android:title="@string/profile_menu_text" />
+        <item
+            android:id="@+id/myproperties_menu_item"
+            android:icon="@drawable/ic_baseline_holiday_village_24"
+            android:title="@string/properties_menu_text" />
+        <item
+            android:id="@+id/logout_menu_item"
+            android:icon="@drawable/ic_baseline_logout_24"
+            android:title="@string/logout_menu_text" />
+    </group>
+</menu>

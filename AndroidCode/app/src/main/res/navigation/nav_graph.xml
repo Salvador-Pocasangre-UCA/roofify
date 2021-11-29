@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/exploreFragment">
+
+    <fragment
+        android:id="@+id/fragment_MessageChannel"
+        android:name="com.rootusergroup.roofify.ui.chatproperty.Fragment_MessageChannel"
+        android:label="fragment__message_channel"
+        tools:layout="@layout/fragment__message_channel" />
+    <fragment
+        android:id="@+id/fragment_General_Chat"
+        android:name="com.rootusergroup.roofify.ui.chatproperty.Fragment_General_Chat"
+        android:label="fragment__general__chat"
+        tools:layout="@layout/fragment__general__chat" />
+    <fragment
+        android:id="@+id/fragment_UserProfile"
+        android:name="com.rootusergroup.roofify.ui.userProfile.Fragment_UserProfile"
+        android:label="fragment__user_profile"
+        tools:layout="@layout/fragment__user_profile" />
+    <fragment
+        android:id="@+id/fragment_detailedHouse"
+        android:name="com.rootusergroup.roofify.ui.detailedProperty.Fragment_detailedHouse"
+        android:label="fragment_detailed_house"
+        tools:layout="@layout/fragment_detailed_house" />
+    <fragment
+        android:id="@+id/fragment_Map"
+        android:name="com.rootusergroup.roofify.ui.mapFunctionality.Fragment_Map"
+        android:label="fragment__map"
+        tools:layout="@layout/fragment__map" />
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.rootusergroup.roofify.ui.ExploreFavProperties.ExploreFragment"
+        android:label="ExploreFragment"
+        tools:layout="@layout/fragment_explore"/>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.rootusergroup.roofify.ui.ExploreFavProperties.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/searchFiltersFragment"
+        android:name="com.rootusergroup.roofify.ui.searchFilters.SearchFiltersFragment"
+        android:label="SearchFiltersFragment"
+        tools:layout="@layout/fragment_search_filters" />
+    <fragment
+        android:id="@+id/postPropertyFragment"
+        android:name="com.rootusergroup.roofify.ui.postproperty.PostPropertyFragment"
+        android:label="PostPropertyFragment"
+        tools:layout="@layout/fragment_post_property" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.rootusergroup.roofify.ui.postproperty.PaymentFragment"
+        android:label="PaymentFragment"
+        tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/myPropertiesFragment"
+        android:name="com.rootusergroup.roofify.ui.ExploreFavProperties.MyPropertiesFragment"
+        android:label="MyPropertiesFragment"
+        tools:layout="@layout/fragment_my_properties" />
+    <fragment
+        android:id="@+id/modifyPropertyFragment"
+        android:name="com.rootusergroup.roofify.ui.modifyProperty.ModifyPropertyFragment"
+        android:label="ModifyPropertyFragment"
+        tools:layout="@layout/fragment_modify_property" />
+</navigation>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/exploreFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_logoroofifyln_03"
+        android:title="@string/menu_explore_text" />
+    <item
+        android:id="@+id/favoritesFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="@string/menu_fav_text" />
+    <item
+        android:id="@+id/page_3"
+        android:enabled="false"
+        android:title="@string/menu_new_text"/>
+    <item
+        android:id="@+id/fragment_General_Chat"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_chat_bubble_24"
+        android:title="@string/menu_inbox_text" />
+    <item
+        android:id="@+id/fragment_Map"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_location_on_24"
+        android:title="@string/menu_map_text" />
+</menu>

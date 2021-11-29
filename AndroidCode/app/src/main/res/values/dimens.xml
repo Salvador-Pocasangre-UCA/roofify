@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_gap">16dp</dimen>
+    <dimen name="button_gap">10dp</dimen>
+    <dimen name="big_gap">20dp</dimen>
+    <dimen name="input_text_radius">5dp</dimen>
+    <dimen name="bottom_navigatio_gap">5dp</dimen>
+    <dimen name="small_gap">8dp</dimen>
+</resources>

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.rootusergroup.roofify.ui.viewmodel.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.postproperty.PostPropertyFragment">
+
+        <LinearLayout
+            android:id="@+id/linearLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/yellow_500"
+            android:padding="@dimen/small_gap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ic_back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+                app:tint="@color/black" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout01">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:padding="@dimen/default_gap"
+                app:cardCornerRadius="@dimen/input_text_radius"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_image">
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_gap"
+                    android:text="Fernando Fernandez"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintStart_toEndOf="@+id/profile_image"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/profile_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_gap"
+                    android:text="\@ferFernandez10"
+                    app:layout_constraintStart_toEndOf="@+id/profile_image"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/default_gap"
+                    app:cardCornerRadius="@dimen/input_text_radius"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_image">
+
+                    <ImageView
+                        android:id="@+id/photo_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                    <LinearLayout
+                        android:id="@+id/linear_layout_add_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:id="@+id/ic_add_photo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/small_gap"
+                            app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/add_photos_hint" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/small_gap"
+                    android:text="@string/post_property_guide_text"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textField_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:hint="@string/property_title_hint"
+                    app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewmodel.title}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textField_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:hint="@string/property_price_hint"
+                    app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                    app:layout_constraintTop_toBottomOf="@+id/textField_title"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="@={viewmodel.price}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textField_category"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:hint="@string/property_category_hint"
+                    app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                    app:layout_constraintTop_toBottomOf="@+id/textField_price"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/list_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:text="@={viewmodel.category}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textField_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:hint="@string/property_location_hint"
+                    app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                    app:layout_constraintTop_toBottomOf="@+id/textField_category"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewmodel.location}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textField_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:hint="@string/property_description_hint"
+                    app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                    app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                    app:layout_constraintTop_toBottomOf="@+id/textField_location"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textMultiLine"
+                        android:text="@={viewmodel.description}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textField_description">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textField_rooms"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        android:layout_weight="1"
+                        android:hint="@string/property_rooms_hint"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        tools:layout_editor_absoluteX="16dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="@={viewmodel.rooms}"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textField_restrooms"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        android:layout_weight="1"
+                        android:hint="@string/property_restrooms_hint"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        tools:layout_editor_absoluteX="16dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="@={viewmodel.bathrooms}"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textField_people"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_weight="1"
+                        android:hint="@string/property_people_hint"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        tools:layout_editor_absoluteX="16dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="@={viewmodel.people}"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/comodidades_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_gap"
+                    android:text="@string/comodidades_subtitle"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout03" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/kitchen_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/kitchen_switch_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/comodidades_subtitle"
+                    android:checked="@={viewmodel.kitchen}"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/kitchen_switch" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/garage_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/garage_switch_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/kitchen_switch"
+                    android:checked="@={viewmodel.garage}"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/garage_switch" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/pool_swicth"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/pool_switch_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/garage_switch"
+                    android:checked="@={viewmodel.pool}"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pool_swicth" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/closets_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/closets_switch_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pool_swicth"
+                    android:checked="@={viewmodel.closets}"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/closets_switch" />
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/closets_switch">
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/extended_fab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/default_gap"
+                        android:gravity="end|center"
+                        android:text="@string/next_button_text"
+                       />
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

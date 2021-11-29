@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="ui.detailedProperty.Fragment_detailedHouse">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/layout_group_chat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_gchannel"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/Widget.AppCompat.Toolbar"
+                android:background="@color/yellow_500"
+                android:layout_marginBottom="1dp"
+                app:popupTheme="@style/Theme.Roofify">
+
+                <ImageView
+                    android:id="@+id/arrowBack_detailed_property"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_gap"
+                    android:src="@drawable/ic_baseline_close_24_black"
+                    android:contentDescription="@string/text_menu" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_group_chat">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_layout_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_gap">
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_gap"
+                    android:text="@string/text_description_property"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintStart_toEndOf="@+id/profile_image"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/profile_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_gap"
+                    android:text="@string/text_property_owner"
+                    app:layout_constraintStart_toEndOf="@+id/profile_image"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/default_gap"
+                    app:cardCornerRadius="@dimen/input_text_radius"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_image">
+
+                    <ImageView
+                        android:id="@+id/add_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/property" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/minitoolbar"
+                    android:layout_marginTop="@dimen/small_gap"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardView">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_text_price_property"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="#eef1f6"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="1dp"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintStart_toStartOf="@+id/minitoolbar"
+                        app:layout_constraintTop_toTopOf="@+id/minitoolbar">
+
+                        <TextView
+                            android:id="@+id/text_price_property"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:maxWidth="260dp"
+                            android:text="@string/text_property_price"
+                            android:textColor="#000000"
+
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:id="@+id/user_phone_icon"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:padding="2dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_baseline_phone_36_black"
+                        android:contentDescription="@string/user_phone_icon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/user_chat_icon"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/user_chat_icon"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:padding="2dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/ic_baseline_chat_bubble_24"
+                        android:contentDescription="@string/user_phone_icon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/user_agenda_icon"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/user_agenda_icon"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:padding="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:src="@drawable/ic_baseline_calendar_today_24"
+                        android:contentDescription="@string/text_user_agenda_icon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/text_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/small_gap"
+                    android:text="@string/post_property_description_text"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/minitoolbar" />
+
+                <TextView
+                    android:id="@+id/distribution_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_gap"
+                    android:text="@string/text_distribution_subtitle"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_description" />
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_Distribution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/distribution_subtitle"
+                    android:baselineAligned="false">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_rooms"
+                        android:background="@color/white"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        android:layout_weight="1"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="1dp"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        tools:layout_editor_absoluteX="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout_rooms_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:id="@+id/property_rooms_icon"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="2dp"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_baseline_single_bed_32_black"
+                                android:contentDescription="@string/text_user_agenda_icon" />
+
+                            <TextView
+                                android:id="@+id/text_room_quantity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:text="@string/text_property_rooms_quantity"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_bathrooms"
+                        android:background="@color/white"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="1dp"
+                        android:layout_weight="1"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        tools:layout_editor_absoluteX="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout_bathrooms_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:id="@+id/property_bathrooms_icon"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="2dp"
+                                android:contentDescription="@string/text_user_agenda_icon"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_baseline_bathtub_32_black" />
+
+                            <TextView
+                                android:id="@+id/text_bathroom_quantity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:text="@string/text_property_bathrooms_quantity"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_people"
+                        android:background="@color/white"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="1dp"
+                        android:layout_weight="1"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        tools:layout_editor_absoluteX="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout_people_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_horizontal">
+
+                            <ImageView
+                                android:id="@+id/property_people_icon"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="2dp"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_baseline_family_restroom_32_black"
+                                android:contentDescription="@string/text_user_agenda_icon" />
+
+                            <TextView
+                                android:id="@+id/text_people_quantity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:text="@string/text_property_people_quantity"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/comodidades_subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_gap"
+                    android:text="@string/text_comodidades_subtitle"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout_Distribution" />
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout_Commodities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/comodidades_subtitle"
+                    android:baselineAligned="false">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_commodities_kitchen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        android:background="@color/white"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="1dp"
+                        tools:layout_editor_absoluteY="16dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/linearLayout_comm_kitchen_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/text_comm_kitchen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:text="@string/text_comm_kitchen"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/property_comm_kitchen_icon"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="@dimen/small_gap"
+                                android:contentDescription="@string/text_user_agenda_icon"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_baseline_kitchen_32_black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_commodities_garege"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        android:background="@color/white"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="1dp"
+                        tools:layout_editor_absoluteY="16dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/linearLayout_comm_garage_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/text_comm_garage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:text="@string/text_comm_garage"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/property_comm_garage_icon"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="@dimen/small_gap"
+                                android:contentDescription="@string/text_user_agenda_icon"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_baseline_garage_svg_32_black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_commodities_pool"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        android:background="@color/white"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="1dp"
+                        tools:layout_editor_absoluteY="16dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/linearLayout_comm_pool_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/text_comm_pool"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:text="@string/text_comm_pool"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/property_comm_pool_icon"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="@dimen/small_gap"
+                                android:contentDescription="@string/text_user_agenda_icon"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_baseline_pool_32_black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_commodities_closet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_gap"
+                        android:layout_marginEnd="@dimen/small_gap"
+                        android:background="@color/white"
+                        app:boxCornerRadiusBottomEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusBottomStart="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                        app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                        app:strokeColor="@color/black"
+                        app:strokeWidth="1dp"
+                        tools:layout_editor_absoluteY="16dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/linearLayout_comm_closet_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/text_comm_closet"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:text="@string/text_comm_closet"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/property_comm_closet_icon"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="@dimen/small_gap"
+                                android:contentDescription="@string/text_user_agenda_icon"
+                                android:padding="2dp"
+                                android:src="@drawable/ic_baseline_closet_svg_32_black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+        <TextView
+            android:id="@+id/ubicacion_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_gap"
+            android:text="@string/text_ubicacion_subtitle"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout_Commodities" />
+
+        <androidx.fragment.app.FragmentContainerView
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:name="com.rootusergroup.roofify.ui.detailedProperty.Fragment_detailedHouse"
+            android:id="@+id/map_detailedProperty"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ubicacion_subtitle"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

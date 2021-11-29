@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.rootusergroup.roofify.ui.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".ui.loginSignup.LoginFragment">
+
+        <TextView
+            android:id="@+id/signUpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            android:background="@drawable/login_card"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/big_gap"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_signup_text_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/big_gap"
+                android:hint="@string/name_text_hint"
+                app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_text_radius">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_signup_text_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@={viewmodel.nameRegisterInput}"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username_signup_text_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/big_gap"
+                android:hint="@string/username_text_hint"
+                app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_text_radius">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username_signup_text_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@={viewmodel.userNameRegisterInput}"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_signup_text_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/big_gap"
+                android:hint="@string/e_mail_text_hint"
+                app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_text_radius">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_signup_text_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:inputType="textEmailAddress"
+                    android:text="@={viewmodel.userEmailRegisterInput}"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password_signup_text_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password_text_hint"
+                app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                app:endIconMode="password_toggle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_signup_text_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/big_gap"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:text="@={viewmodel.passwordRegisterInput}"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password2_signup_text_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/confirm_password_text_hint"
+                app:boxCornerRadiusTopEnd="@dimen/input_text_radius"
+                app:boxCornerRadiusTopStart="@dimen/input_text_radius"
+                app:endIconMode="password_toggle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password2_signup_text_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/big_gap"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:text="@={viewmodel.repeatPasswordRegisterInput}"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/signupButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:padding="@dimen/button_gap"
+                android:text="@string/sign_up_text_button"
+                android:textColor="@color/white"
+                android:onClick="@{()->viewmodel.register()}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/big_gap"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/noAccountText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/have_account_text"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/signupLoginButton"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:text="@string/login_button_text"
+                    android:textColor="@color/yellow_500" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
